@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:site_name" content="Dog Fetcher app" />
         <meta property="og:title" content="Dog Fetcher app" />
         <meta property="og:description" content="We fetch dogs so you don't have to!" />
-        <meta property="og:image" itemProp="image" content="https://next-demo-dogs.vercel.app/dog.svg" />
+        <meta property="og:image" itemProp="image" content="https://next-demo-dogs.vercel.app/dog_logo.png" />
         <meta property="og:type" content="website" />
       </Head>
       <Component {...pageProps} />;
