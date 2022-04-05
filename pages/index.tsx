@@ -8,19 +8,29 @@ import ToggleTheme from "../components/ToggleTheme";
 
 const Home: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [dogUrl, setDogUrl] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const onClickHandler = async () => {
+    setIsLoading(true);
     const res: Response = await fetch("https://dog.ceo/api/breeds/image/random");
     const data = (await res.json()) as DogApiResponse;
     setDogUrl(data.message);
+    setIsLoading(false);
   };
 
   return (
     <div className={styles.container}>
       <ToggleTheme />
-      <img className={styles.image} src={dogUrl ? dogUrl : props.dogImageUrl} alt="dick move" />
+      {isLoading ? (
+        <div className={styles.image}>
+          <img src="dog.svg" className={`${styles.dog}`} alt="dogi"></img>
+        </div>
+      ) : (
+        <img className={styles.image} src={dogUrl ? dogUrl : props.dogImageUrl} alt="dogi" />
+      )}
+
       <button className={styles.refresh} onClick={onClickHandler}>
-        This dog is shit, get a new one
+        GIVE ME MORE
       </button>
     </div>
   );

@@ -1,26 +1,49 @@
 .container {
   background-color: var(--color-background);
-  display: flex;
   margin: 0 auto;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  padding: 1rem 0;
+  text-align: center;
 }
 
 .refresh {
   background: var(--color-switch-background);
   border: none;
   color: var(--color-text);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
   display: block;
   cursor: pointer;
+  margin: 1rem auto;
+  font-size: clamp(1rem, 5.8vw, 2rem);
 }
 
 .image {
   width: auto;
   height: 70vh;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
+  object-fit: cover;
+
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .image {
+    width: 90%;
+    height: 80%;
+  }
+}
+
+.dog {
+  margin: auto 0;
+  display: block;
+  transform: scale(0.5);
+  animation: pulse 0.3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(1);
+  }
 }
