@@ -1,0 +1,26 @@
+.container {
+  background-color: var(--color-background);
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.refresh {
+  background: var(--color-switch-background);
+  border: none;
+  color: var(--color-text);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: block;
+  cursor: pointer;
+}
+
+.image {
+  width: auto;
+  height: 70vh;
+  border-radius: 0.5rem;
+}
