@@ -1,9 +1,41 @@
+:root {
+  --color-background: #f1f3f5;
+  --color-text: #000;
+
+  --color-brand-primary: 255, 57, 116;
+  --color-brand-primary-light: 34, 139, 230;
+  --color-brand-secondary: 200, 32, 52;
+  --color-brand-secondary-light: 209, 58, 88;
+
+  --color-switch-background: #339af0;
+  --color-switch: #ffd43b;
+
+  --color-success: #40c057;
+}
+
 html,
 body {
+  min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  background-color: var(--color-background);
+  font-family: "Underdog", cursive;
+}
+
+button {
+  font-family: inherit;
+}
+
+[theme="dark"] {
+  --color-background: #000;
+  --color-text: #f1f3f5;
+
+  --color-brand-primary: 10, 43, 71;
+  --color-brand-primary-light: 17, 17, 17;
+
+  --color-switch-background: #212529;
+  --color-switch: #fff9db;
 }
 
 a {
