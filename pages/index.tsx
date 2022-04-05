@@ -8,7 +8,7 @@ import ToggleTheme from "../components/ToggleTheme";
 
 const Home: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [dogUrl, setDogUrl] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onClickHandler = async () => {
     setIsLoading(true);
