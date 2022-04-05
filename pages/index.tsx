@@ -37,5 +37,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       host: "test return static props",
       dogImageUrl: data.message,
     },
+    revalidate: 1,
   };
 };
