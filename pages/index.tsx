@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import TestComponent from "../components/TestComponent";
-import { createElement, ReactChildren, useState } from "react";
+import { createElement, Fragment, ReactChildren, useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import styles from "./index.module.css";
 import ToggleTheme from "../components/ToggleTheme";
@@ -10,29 +10,45 @@ const Home: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) =
   const [dogUrl, setDogUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const onClickHandler = async () => {
+  const onFetchRandomDog = async () => {
+    await fetchDog("https://dog.ceo/api/breeds/image/random");
+  };
+
+  const onFetchLabrador = async () => {
+    await fetchDog("https://dog.ceo/api/breed/labrador/images/random");
+  };
+
+  const fetchDog = async (url: string) => {
     setIsLoading(true);
-    const res: Response = await fetch("https://dog.ceo/api/breeds/image/random");
+    const res: Response = await fetch(url);
     const data = (await res.json()) as DogApiResponse;
     setDogUrl(data.message);
     setIsLoading(false);
   };
 
   return (
-    <div className={styles.container}>
-      <ToggleTheme />
-      {isLoading ? (
+    <Fragment>
+      <div className={styles.background}></div>
+      <div className={styles.container}>
+        <ToggleTheme />
         <div className={styles.image}>
-          <img src="dog.svg" className={`${styles.dog}`} alt="dogi"></img>
+          {isLoading ? (
+            <img src="dog.svg" className={`${styles.dog}`} alt="dogi"></img>
+          ) : (
+            <img className={styles.image} src={dogUrl ? dogUrl : props.dogImageUrl} alt="dogi" />
+          )}
         </div>
-      ) : (
-        <img className={styles.image} src={dogUrl ? dogUrl : props.dogImageUrl} alt="dogi" />
-      )}
 
-      <button className={styles.refresh} onClick={onClickHandler}>
-        GIVE ME MORE
-      </button>
-    </div>
+        <div className={styles.buttons}>
+          <button className={styles.refresh} onClick={onFetchRandomDog}>
+            DOGO
+          </button>
+          <button className={styles.refresh} onClick={onFetchLabrador}>
+            LAB ❤
+          </button>
+        </div>
+      </div>
+    </Fragment>
   );
 };
 
@@ -43,7 +59,7 @@ interface DogApiResponse {
 
 export default Home;
 export const getStaticProps: GetStaticProps = async (context) => {
-  const res: Response = await fetch("https://dog.ceo/api/breeds/image/random");
+  const res: Response = await fetch("https://dog.ceo/api/breed/labrador/images/random");
   const data = (await res.json()) as DogApiResponse;
 
   return {

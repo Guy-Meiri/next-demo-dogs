@@ -7,7 +7,7 @@
   --color-brand-secondary: 200, 32, 52;
   --color-brand-secondary-light: 209, 58, 88;
 
-  --color-switch-background: #339af0;
+  --color-switch-background: #97b7d1;
   --color-switch: #ffd43b;
 
   --color-success: #40c057;
@@ -19,7 +19,6 @@ body {
   padding: 0;
   margin: 0;
 
-  background-color: var(--color-background);
   font-family: "Underdog", cursive;
 }
 

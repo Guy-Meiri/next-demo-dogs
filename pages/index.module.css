@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--color-background);
+  /* background-color: var(--color-background); */
   margin: 0 auto;
   height: 90vh;
   width: 90vw;
@@ -11,39 +11,59 @@
   background: var(--color-switch-background);
   border: none;
   color: var(--color-text);
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 1rem;
   display: block;
   cursor: pointer;
   margin: 1rem auto;
-  font-size: clamp(1rem, 5.8vw, 2rem);
+  font-size: clamp(0.5rem, 5.8vw, 1rem);
 }
 
 .image {
   width: auto;
+  width: 100%;
   height: 70vh;
   border-radius: 1rem;
-  object-fit: cover;
-
+  object-fit: contain;
   background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
   .image {
-    width: 90%;
     height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 .dog {
   margin: auto 0;
   display: block;
-  transform: scale(0.5);
-  animation: pulse 0.3s ease-in-out infinite;
+  height: 10rem;
+  transform: rotate(0deg);
+  animation: pulse 0.7s ease-in-out infinite;
 }
 
 @keyframes pulse {
   to {
-    transform: scale(1);
+    transform: rotate(360deg);
   }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.background {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/dogBackground.jpg");
+  opacity: 0.5;
+  z-index: -4;
 }
