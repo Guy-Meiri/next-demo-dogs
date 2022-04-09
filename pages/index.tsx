@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
-import Image from "next/image";
-import TestComponent from "../components/TestComponent";
-import { createElement, Fragment, ReactChildren, useState } from "react";
+import { Fragment, useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import styles from "./index.module.css";
 import ToggleTheme from "../components/ToggleTheme";
